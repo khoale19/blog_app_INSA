@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* INSA School Colors - Light Theme (default) - Modernized */
+  --color-background: #fafafa;
+  --color-foreground: #0f172a;
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0f172a;
+  --color-primary: #E0352A;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #f8fafc;
+  --color-muted-foreground: #64748b;
+  --color-accent: #E0352A;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #e2e8f0;
+  --color-input: #ffffff;
+  --color-ring: #E0352A;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  
+  /* Custom colors - Light - Modernized */
+  --color-sidebar: #ffffff;
+  --color-header: #ffffff;
+  --color-card-hover: #f8fafc;
+}
+
+/* Dark Theme - Modernized */
+[data-theme="dark"] {
+  --color-background: #0a0a0a;
+  --color-foreground: #f8fafc;
+  --color-card: #111111;
+  --color-card-foreground: #f8fafc;
+  --color-popover: #111111;
+  --color-popover-foreground: #f8fafc;
+  --color-primary: #ff4757;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #1a1a1a;
+  --color-secondary-foreground: #f8fafc;
+  --color-muted: #1a1a1a;
+  --color-muted-foreground: #94a3b8;
+  --color-accent: #ff4757;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ff6b6b;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #1e1e1e;
+  --color-input: #1a1a1a;
+  --color-ring: #ff4757;
+  
+  /* Custom colors - Dark - Modernized */
+  --color-sidebar: #0f0f0f;
+  --color-header: #111111;
+  --color-card-hover: #1a1a1a;
+}
+
+* {
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Modern scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}
+
+.font-serif {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Custom animation for theme dropdown - smooth fade and scale from bottom */
+@keyframes theme-dropdown-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    transform-origin: bottom;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes theme-dropdown-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transform-origin: bottom;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    transform-origin: bottom;
+  }
+}
+
+/* Theme dropdown animation */
+.theme-dropdown-no-anim[data-state="open"] {
+  animation: theme-dropdown-enter 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform-origin: bottom;
+}
+
+.theme-dropdown-no-anim[data-state="closed"] {
+  animation: theme-dropdown-exit 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform-origin: bottom;
+}
+
